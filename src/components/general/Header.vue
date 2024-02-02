@@ -1,14 +1,14 @@
 <template>
-    <header class="main-header">
-      <div class="logo-container">
+    <header class="main_header">
+      <div class="logo_container">
         <img src="../../assets/images/logoConectados.png" alt="Logo">
       </div>
-      <div class="title-container">
-        <div class="main-title">Your official Japan</div>
-        <div class="sub-title">travel guide</div>
+      <div class="title_container">
+        <div class="main_title">Your official Japan</div>
+        <div class="sub_title">travel guide</div>
       </div>
-      <div class="login-container">
-        <button class="login-button">Log In</button>
+      <div class="login_container">
+        <button class="login_button">Log In</button>
       </div>
     </header>
   </template>
@@ -18,7 +18,7 @@
   </script>
   
   <style scoped>
-  .main-header {
+  .main_header {
     height: 25rem;
     display: flex;
     justify-content: space-between;
@@ -28,26 +28,26 @@
                 url('../../assets/images/imagenFondoHeader.jpg') center/cover no-repeat; 
   }
   
-  .logo-container img {
+  .logo_container img {
     max-height: 6rem;
   }
   
-  .title-container {
+  .title_container {
     text-align: center;
     margin-top: 10rem;
   }
   
-  .main-title {
+  .main_title {
     font-size: 2.3rem;
     color: #fff;
   }
   
-  .sub-title {
+  .sub_title {
     font-size: 2rem;
     color: #ffffff;
   }
   
-  .login-container button {
+  .login_container button {
     padding: 7px 11px;
     background-color: transparent;
     color: #fff;
@@ -58,29 +58,29 @@
   }
 
   @media (min-width: 768px) {
-  .main-header {
+  .main_header {
     height: 40rem; 
   }
 
-  .logo-container img {
+  .logo_container img {
     max-height: 12rem; 
   }
 
-  .title-container {
+  .title_container {
     text-align: center; 
     margin-top: 12rem; 
     margin-left: 20px; 
   }
 
-  .main-title {
+  .main_title {
     font-size: 5rem; 
   }
 
-  .sub-title {
+  .sub_title {
     font-size: 3.5rem; 
   }
 
-  .login-container button {
+  .login_container button {
     padding: 10px 20px;
     font-size: 2.2rem;
   }
