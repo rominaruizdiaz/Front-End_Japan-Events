@@ -1,5 +1,6 @@
 <script setup>
-import Card from './../components/card.vue'
+import Card from './../components/Card.vue';
+import CardFilter from './../components/CardFilter.vue';
 </script>
 
 
@@ -7,17 +8,19 @@ import Card from './../components/card.vue'
   <body>
     <main>
       <section>
-        <div id="cards_container">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+        <div>
+          <CardFilter />
+          <div id="cards_container">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+          </div>
         </div>
-        
       </section>
     </main>
   </body>
@@ -27,26 +30,70 @@ import Card from './../components/card.vue'
 
 <style scoped lang="scss">
 
+section {
+  background-image: url(./../../public/assets/background-cards.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3vh;
+  }
+}
+
 #cards_container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
     gap: 3vh;
 }
-@media (min-width: 1100px) {
+
+@media (min-width: 500px) {
+#cards_container {
+  display: grid;
+  grid-template-columns: auto;
+}
+}
+
+@media (min-width: 800px) {
+#cards_container {
+  grid-template-columns: auto auto;
+}
+}
+@media (min-width: 1200px) {
   section {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-}
-  #cards_container {
-    display: flex;
-    justify-content: space-between;
-    width: 74vw;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+
+    > div {
+      width: 70%;
+    }
+  }
+#cards_container {
     gap: 5vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
 }
+
+}
+@media (min-width: 1600px) {
+  section {
+
+    > div {
+      width: 70%;
+    }
+  }
+#cards_container {
+    gap: 5vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
 }
 </style>
