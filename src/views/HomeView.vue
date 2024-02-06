@@ -1,13 +1,18 @@
 <script setup>
 import Card from './../components/Card.vue';
 import CardFilter from './../components/CardFilter.vue';
+import FeaturedCard from '@/components/FeaturedCard.vue';
 </script>
 
 
 <template>
   <body>
     <main>
-      <section>
+      <section id="section-slider">
+        <FeaturedCard />
+      </section>
+      <div></div>
+      <section id="section-card">
         <div>
           <CardFilter />
           <div id="cards_container">
@@ -29,14 +34,29 @@ import CardFilter from './../components/CardFilter.vue';
 
 
 <style scoped lang="scss">
+main {
+  display: flex;
+  flex-direction: column;
+}
+#section-slider {
+  background-color: #F8F8F8;
+  padding: 1em;
+}
 
-section {
-  background-image: url(./../../public/assets/background-cards.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+
+
+
+
+
+
+
+#section-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url(./assets/background-cards.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 
   > div {
     width: 90%;
@@ -68,13 +88,14 @@ section {
   grid-template-columns: auto auto;
 }
 }
+
 @media (min-width: 1200px) {
-  section {
+#section-card {
 
     > div {
       width: 70%;
     }
-  }
+}
 #cards_container {
     gap: 5vh;
     display: grid;
@@ -82,13 +103,14 @@ section {
 }
 
 }
+
 @media (min-width: 1600px) {
-  section {
+#section-card {
 
     > div {
       width: 70%;
     }
-  }
+}
 #cards_container {
     gap: 5vh;
     display: grid;

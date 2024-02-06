@@ -22,6 +22,7 @@
 
 <style scoped lang="scss">
 #cards_filters {
+  padding-top: 10vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,6 +83,7 @@ button {
 
 @media (min-width: 500px) {
   #cards_filters {
+    padding-top: 30vh;
     #cards_filters_date {
       width: 32%;
     }
