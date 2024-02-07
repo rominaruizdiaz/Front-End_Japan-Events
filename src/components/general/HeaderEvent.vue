@@ -1,0 +1,112 @@
+<template>
+  <header class="main_header">
+    <div class="top_section"></div>
+    <div class="logo_container">
+      <img src="../../assets/images/logoConectados.png" alt="Logo">
+    </div>
+    <div class="title_container">
+      <div class="main_title">Sushi Restaurant Food Event </div>
+    </div>
+    <div class="login_container">
+      <button class="home_button">Home</button>
+      <button class="login_button">Log In</button>
+    </div>
+  </header>
+</template>
+  
+<script>
+
+</script>
+  
+<style scoped>
+.main_header {
+    height: 25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+
+    background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(85, 85, 85)),
+        url('../../assets/images/THUMBNAIL.png') center/cover no-repeat;
+}
+
+.logo_container img {
+    max-height: 6rem;
+}
+
+.title_container {
+    text-align: center;
+    margin-top: 10rem;
+}
+
+.main_title {
+    font-size: 3rem;
+    color: #fff;
+    display: flex;
+    text-align: center;
+    margin-left: 1.8rem;
+}
+
+
+
+.login_container {
+    display: flex;
+    align-items: center;
+}
+
+.login_button {
+    padding: 7px 11px;
+    background-color: transparent;
+    color: #fff;
+    border: 1.5px solid #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.home_button {
+    margin-right: 6rem;
+    padding: 7px 11px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .main_header {
+        height: 40rem;
+    }
+
+    .logo_container img {
+        max-height: 12rem;
+    }
+
+    .title_container {
+        text-align: center;
+        margin-top: 12rem;
+        margin-left: 20px;
+    }
+
+    .main_title {
+        font-size: 5rem;
+    }
+
+
+
+    .login_container button {
+        padding: 10px 10px;
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .main_title {
+        font-size: 2.7rem;
+        display: flex;
+    }
+
+
+}
+</style>

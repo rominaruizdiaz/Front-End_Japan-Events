@@ -8,6 +8,7 @@
         <div class="sub_title">travel guide</div>
       </div>
       <div class="login_container">
+        <button class="home_button">Home</button>
         <button class="login_button">Log In</button>
       </div>
     </header>
@@ -56,6 +57,15 @@
     cursor: pointer;
     font-size: 1.5rem;
   }
+  .home_button {
+    margin-right: 6rem;
+    padding: 7px 11px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
 
   @media (min-width: 768px) {
   .main_header {
