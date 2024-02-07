@@ -83,7 +83,7 @@
     margin-bottom: 20px;
 }
 .social_icons svg {
-  margin-right: 10px; /* Ajusta el valor según sea necesario */
+  margin-right: 10px; 
 }
 
 .footer_text {
