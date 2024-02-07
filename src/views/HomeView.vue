@@ -2,16 +2,35 @@
 import Card from './../components/Card.vue';
 import CardFilter from './../components/CardFilter.vue';
 import FeaturedCard from '@/components/FeaturedCard.vue';
+
+
+
+
+
+
+
+
+
 </script>
 
 
 <template>
   <body>
     <main>
-      <section id="section-slider">
-        <FeaturedCard />
+      <section id="container">
+        <div id="carrousel">
+          <div id="slider">
+            <FeaturedCard class="section"/>
+            <FeaturedCard class="section"/>
+            <FeaturedCard class="section"/>
+            <FeaturedCard class="section"/>
+            <FeaturedCard class="section"/>
+          </div>
+        </div>
       </section>
-      <div></div>
+
+
+
       <section id="section-card">
         <div>
           <CardFilter />
@@ -38,11 +57,33 @@ main {
   display: flex;
   flex-direction: column;
 }
-#section-slider {
-  background-color: #F8F8F8;
-  padding: 1em;
-}
 
+#container {
+  width: 88%;
+  margin: 20px auto;
+  height: 300px;
+}
+#carousel {
+  width: 100%;
+  height: 100%;
+  border: 2px solid orange;
+  border-radius: 3px;
+  display: flex;
+  justify-content: flex-start;
+}
+#slider {
+  display: flex;
+  height: 100%;
+  width: 500%;
+
+  .section {
+    flex-basis: 20%;
+    width: 20%;
+    flex-shrink: 0;
+    flex: 1;
+
+  }
+}
 
 
 
