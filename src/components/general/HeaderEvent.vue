@@ -1,15 +1,15 @@
 <template>
-  <header class="main_header">
+  <header class="main_header_event">
     <div class="top_section"></div>
-    <div class="logo_container">
+    <div class="logo_container_event">
       <img src="../../assets/images/logoConectados.png" alt="Logo">
     </div>
-    <div class="title_container">
-      <div class="main_title">Sushi Restaurant Food Event </div>
+    <div class="title_container_event">
+      <div class="main_title_event">Sushi Restaurant Food Event </div>
     </div>
-    <div class="login_container">
-      <button class="home_button">Home</button>
-      <button class="login_button">Log In</button>
+    <div class="login_container_event">
+      <button class="home_button_event">Home</button>
+      <button class="login_button_event">Log In</button>
     </div>
   </header>
 </template>
@@ -19,7 +19,7 @@
 </script>
   
 <style scoped>
-.main_header {
+.main_header_event {
     height: 25rem;
     display: flex;
     justify-content: space-between;
@@ -30,16 +30,16 @@
         url('../../assets/images/THUMBNAIL.png') center/cover no-repeat;
 }
 
-.logo_container img {
+.logo_container_event img {
     max-height: 6rem;
 }
 
-.title_container {
+.title_container_event {
     text-align: center;
     margin-top: 10rem;
 }
 
-.main_title {
+.main_title_event {
     font-size: 3rem;
     color: #fff;
     display: flex;
@@ -49,12 +49,12 @@
 
 
 
-.login_container {
+.login_container_event {
     display: flex;
     align-items: center;
 }
 
-.login_button {
+.login_button_event {
     padding: 7px 11px;
     background-color: transparent;
     color: #fff;
@@ -64,7 +64,7 @@
     font-size: 1.5rem;
 }
 
-.home_button {
+.home_button_event {
     margin-right: 6rem;
     padding: 7px 11px;
     background-color: transparent;
@@ -75,34 +75,34 @@
 }
 
 @media (min-width: 768px) {
-    .main_header {
+    .main_header_event {
         height: 40rem;
     }
 
-    .logo_container img {
+    .logo_container_event img {
         max-height: 12rem;
     }
 
-    .title_container {
+    .title_container_event {
         text-align: center;
         margin-top: 12rem;
         margin-left: 20px;
     }
 
-    .main_title {
+    .main_title_event {
         font-size: 5rem;
     }
 
 
 
-    .login_container button {
+    .login_container_event button {
         padding: 10px 10px;
         font-size: 2.2rem;
     }
 }
 
 @media (max-width: 550px) {
-    .main_title {
+    .main_title_event {
         font-size: 2.7rem;
         display: flex;
     }
