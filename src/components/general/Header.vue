@@ -55,7 +55,7 @@
 }
 
 .home_button {
-  margin-right: 6rem;
+  margin-right: 2rem;
   padding: 7px 11px;
   background-color: transparent;
   color: #fff;
@@ -89,7 +89,17 @@
 
   .login_container button {
     padding: 10px 20px;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 445px) {
+  .login_container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home_button {
+    margin-right: 0.5rem; 
   }
 }
 </style>
