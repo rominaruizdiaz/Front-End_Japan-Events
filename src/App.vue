@@ -8,7 +8,7 @@ import Footer from './components/general/Footer.vue';
 
 <template>
   <header>
-    <!-- <Header /> -->
+    <!-- <HeaderEventVue /> -->
     <Header />
   
     <div class="wrapper">
