@@ -31,7 +31,7 @@ import CardFilter from './../components/CardFilter.vue';
 <style scoped lang="scss">
 
 section {
-  background-image: url(./../../public/assets/background-cards.png);
+  background-image: url(./../assets/images/background-cards.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

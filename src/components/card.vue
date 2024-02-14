@@ -50,7 +50,7 @@ article {
 }
 #event_image {
     // crear un javascript para añadir las imagenes.
-    background-image: url("./../../public/assets/example-event.jpg");
+    background-image: url("./../assets/images/example-event.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

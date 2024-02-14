@@ -1,7 +1,7 @@
 <template>
   <header class="main_header">
     <div class="logo_container">
-      <img src="../../assets/images/logoConectados.png" alt="Logo">
+      <img src="./../../assets/images/logoConectados.png" alt="Logo">
     </div>
     <div class="title_container">
       <div class="main_title">Your official Japan</div>
