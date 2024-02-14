@@ -5,25 +5,34 @@
         <img src="../../assets/images/logoConectados.png" alt="Logo">
       </div>
       <div class="buttons">
-        <button class="home_button">Home</button>
-        <button class="my_events_button">My Events</button>
-        <button class="control_panel_button">Control Panel</button>
+        <button class="home_button" @click="navigate('Home')">Home</button>
+        <button class="my_events_button" @click="navigate('My Events')">My Events</button>
+        <button class="control_panel_button" @click="navigate('Control Panel')">Control Panel</button>
       </div>
-      <div class="menu_container" @click="toggleMenu">
+      <div class="menu_container" @click="toggleMenu" v-show="isMobile">
         <div class="menu_icon">&#9776;</div>
-        <div class="dropdown_menu" v-show="showMenu">
-          <button class="menu_button" @click="navigate('Home')">Home</button>
-          <button class="menu_button" @click="navigate('My Events')">My Events</button>
-          <button class="menu_button" @click="navigate('Control Panel')">Control Panel</button>
-        </div>
       </div>
       <div class="login_container">
-        <button class="login_button">Log In</button>
+        <button class="login_button" @click="navigate('Login')">Log In</button>
       </div>
     </div>
     <div class="title_container">
       <div class="main_title">Your official Japan</div>
       <div class="sub_title">travel guide</div>
+    </div>
+    <div class="mobile_menu" v-show="showMenu">
+      <div class="menu_content">
+        <div class="logo_container">
+          <img src="../../assets/images/logoConectados.png" alt="Logo">
+        </div>
+        <button class="menu_close" @click="toggleMenu">&times;</button>
+        <div class="menu_links">
+          <button class="menu_link" @click="navigate('Home')">Home</button>
+          <button class="menu_link" @click="navigate('My Events')">My Events</button>
+          <button class="menu_link" @click="navigate('Control Panel')">Control Panel</button>
+          <button class="menu_link" @click="navigate('Login')">Log In</button>
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -32,19 +41,28 @@
 export default {
   data() {
     return {
-      showMenu: false
+      showMenu: false,
+      isMobile: window.innerWidth <= 430,
     };
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
     },
     navigate(page) {
-      // Agrega lógica para manejar la navegación según la opción seleccionada en el dropdown
-      console.log(`Navigating to ${page}`);
-      this.showMenu = false; // Cierra el dropdown después de hacer clic en una opción
-    }
-  }
+      this.selectedPage = page;
+      this.showMenu = false;
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth <= 430;
+    },
+  },
 };
 </script>
 
@@ -108,8 +126,8 @@ export default {
 .menu_container {
   display: none;
   cursor: pointer;
-  font-size: 2rem; /* Aumenté el tamaño del icono de menú */
-  color: #fff; /* Cambié el color a blanco */
+  font-size: 2rem; 
+  color: #fff; 
 }
 
 .dropdown_menu {
