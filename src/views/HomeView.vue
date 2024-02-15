@@ -1,11 +1,14 @@
 <script setup>
 import Card from './../components/Card.vue';
 import CardFilter from './../components/CardFilter.vue';
+import HeaderVue from './../components/general/Header.vue';
+import FooterVue from './../components/general/Footer.vue';
 </script>
 
 
 <template>
   <body>
+    <HeaderVue />
     <main>
       <section>
         <div>
@@ -23,6 +26,7 @@ import CardFilter from './../components/CardFilter.vue';
         </div>
       </section>
     </main>
+    <FooterVue />
   </body>
   
 </template>
