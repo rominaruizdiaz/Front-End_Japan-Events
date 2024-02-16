@@ -4,20 +4,22 @@ import { RouterLink } from 'vue-router';
 
 <template>
     <body>
-        <header>
-            <img src="./../assets/images/logoConectados.png" alt="Logo">
-            <router-link to="/" id="routerlink">Home</router-link>
-        </header>
         <main>
             <form action="">
+              <div id="form">
                 <h1>LOGIN</h1>
-                <div>
+                <div id="inputs">
+                  <div>
                     <label for="username">Username</label>
                     <input type="text">
+                  </div>
+                  <div>
                     <label for="password">Password</label>
                     <input type="text">
+                  </div>
                 </div>
-                <button>Log in</button>
+              </div>
+              <button>Log in</button>
             </form>
         </main>
     </body>
@@ -35,62 +37,74 @@ import { RouterLink } from 'vue-router';
         background-position: center;
         height: 100vh;
         width: 100vw;
-    }
-    header {
-        height: 15vh;
+
         display: flex;
-        padding: 3em;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
+        justify-content: center;
+    }
 
-        img {
-            height: 25em;
-        }
-
-        #routerlink{
-            font-size: 3em;
-            text-decoration: none;
-        }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     form {
-        height: 80vh;
-        width: 550px;
-        background-color: rgba(255, 255, 255, 0.199);
-        backdrop-filter: blur(30px);
-        padding: 5em;
-        border-radius: 5em;
-        margin-left: 10vw;
+      background-color: rgba(255, 255, 255, 0.442);
+      width: 80vw;
+      height: auto;
+      padding: 3rem;
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      button {
+        margin-top: 5em;
+        background-color: aqua;
+        padding: 4px;
+        
+      }
+
+      #form {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
         align-items: center;
 
         h1 {
-            font-weight: 500;
-            font-size: 4.5em;
+          font-weight: 400;
         }
-
         > div {
-            background-color: rgb(0, 0, 0);
+          gap: 30px;
+
+          > div {
             display: flex;
             flex-direction: column;
-            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
 
-            label {
-                font-size: 3em;
-                margin-bottom: 5%;
+              > div {
+                gap: 10px;
 
-            }
-            input {
-                border: none;
-                border-radius: 10px;
-                width: 100%;
-                padding: 1em;
-                height: 3vh;
-                color: black;
-                font-size: 1.5em;
-            }
+                label {
+                  align-self: baseline;
+                }
+  
+                input {
+                  color: black;
+                  border-radius: 10px;
+                  border: none;
+                  padding: 4px;
+                  width: 100%;
+                }
+              }
+          }
         }
+      }
     }
 </style>
