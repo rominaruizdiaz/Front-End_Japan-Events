@@ -24,6 +24,8 @@
           <button class="menu_link" @click="navigate('Control Panel')">Control Panel</button>
         </div>
       </div>
+    <div class="logo_container">
+      <img src="./../../assets/images/logoConectados.png" alt="Logo">
     </div>
     <div class="title_container">
       <div class="main_title">Your official Japan</div>
