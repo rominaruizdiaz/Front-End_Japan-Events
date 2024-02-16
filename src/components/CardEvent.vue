@@ -2,26 +2,26 @@
 <div id="Container_Card">
    <div id="Event">
       <div class="Text_one">
-           <img src="../assets/icon/map-regular-24.png" alt="">
+           <img src="./../assets/icons/map-regular-24.png" alt="">
            <h4>Lugar:</h4>
             <p> Osaka</p>
       </div>
 
       <div class="Text_one">
-         <img src="../assets/icon/group-regular-24.png" alt="">
+         <img src="./../assets/icons/group-regular-24.png" alt="">
          <h4>Plazas:</h4>
          <p>23</p>
       </div>
 
      <div class="Text_one">
-         <img src="../assets/icon/Frame.png" alt="">
+         <img src="./../assets/icon/Frame.png" alt="">
          <h4>Cuando:</h4> 
          <p class="line">Oct 14th 14:00 pm</p>
          <p class="line1">Oct 15th 18:00 pm</p> 
       </div>
 
       <div class="Text_one">
-         <img src="../assets/icon/Ticket_Voucher.png" alt=""> 
+         <img src="./../assets/icons/Ticket_Voucher.png" alt=""> 
          <h4>Price:</h4>  
          <p>¥ 5.00</p>
       </div> 
@@ -34,7 +34,7 @@
    </div>
    
    <div id="Admi_Card"> 
-      <img src="../assets/img/river-fx-R9F2Um5FsSY-unsplash.jpg" alt="">
+      <img src="./../assets/images/river-fx-R9F2Um5FsSY-unsplash.jpg" alt="">
       <h4>Hosted by:<br>Admi</h4>
    </div> 
 

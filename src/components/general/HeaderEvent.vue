@@ -2,7 +2,7 @@
   <header class="main_header_event">
     <div class="top_section"></div>
     <div class="logo_container_event">
-      <img src="../../assets/images/logoConectados.png" alt="Logo">
+      <img src="./../../assets/images/logoConectados.png" alt="Logo">
     </div>
     <div class="title_container_event">
       <div class="main_title_event">Sushi Restaurant Food Event </div>
@@ -27,7 +27,7 @@
     padding: 10px;
 
     background: linear-gradient(to top, rgba(255, 255, 255, 0), rgb(85, 85, 85)),
-        url('../../assets/images/THUMBNAIL.png') center/cover no-repeat;
+        url('./../../assets/images/THUMBNAIL.png') center/cover no-repeat;
 }
 
 .logo_container_event img {
