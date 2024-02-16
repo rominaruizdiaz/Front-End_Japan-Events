@@ -1,5 +1,29 @@
 <template>
   <header class="main_header">
+    <div class="button_container">
+      <div class="logo_container">
+        <img src="../../assets/images/logoConectados.png" alt="Logo">
+      </div>
+      <div class="buttons">
+        <button class="home_button" @click="navigate('Home')">Home</button>
+        <button class="my_events_button" @click="navigate('My Events')">My Events</button>
+        <button class="control_panel_button" @click="navigate('Control Panel')">Control Panel</button>
+      </div>
+      <div class="menu_container" @click="toggleMenu" v-show="isMobile">
+        <div class="menu_icon">&#9776;</div>
+      </div>
+      <div class="login_container">
+        <button class="login_button" @click="navigate('Login')">Log In</button>
+      </div>
+    </div>
+    <div class="mobile_menu" v-show="showMenu">
+      <div class="menu_content">
+        <div class="menu_links">
+          <button class="menu_link" @click="navigate('Home')">Home</button>
+          <button class="menu_link" @click="navigate('My Events')">My Events</button>
+          <button class="menu_link" @click="navigate('Control Panel')">Control Panel</button>
+        </div>
+      </div>
     <div class="logo_container">
       <img src="./../../assets/images/logoConectados.png" alt="Logo">
     </div>
@@ -7,99 +31,167 @@
       <div class="main_title">Your official Japan</div>
       <div class="sub_title">travel guide</div>
     </div>
-    <div class="login_container">
-      <button class="home_button">Home</button>
-      <button class="login_button">Log In</button>
-    </div>
   </header>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      showMenu: false,
+      isMobile: window.innerWidth <= 430,
+    };
+  },
+  mounted() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  methods: {
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    navigate(page) {
+      this.selectedPage = page;
+      this.showMenu = false;
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth <= 430;
+    },
+  },
+};
+</script>
 <style scoped>
 .main_header {
   height: 25rem;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: center;
   padding: 10px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255)),
-              url('../../assets/images/imagenFondoHeader.jpg') center/cover no-repeat; 
+    url('../../assets/images/imagenFondoHeader.jpg') center/cover no-repeat;
 }
-
+.button_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .logo_container img {
   max-height: 6rem;
 }
-
-.title_container {
-  text-align: center;
-  margin-top: 10rem;
+.buttons {
+  display: flex;
 }
-
-.main_title {
-  font-size: 2.3rem;
-  color: #fff;
-}
-
-.sub_title {
-  font-size: 2rem;
-  color: #ffffff;
-}
-
-.login_button {
+.home_button,
+.my_events_button,
+.control_panel_button {
+  margin-right: 0.5rem;
   padding: 7px 11px;
   background-color: transparent;
   color: #fff;
-  border: 1.5px solid #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: font-size 0.3s;
+}
+.login_container {
+  display: flex;
+  align-items: center;
+}
+.login_button {
+  margin-left: 0.5rem;
+  padding: 7px 11px;
+  background-color: #d6d6d600;
+  color: #fff;
+  border: solid 1px #fff;
   border-radius: 15px;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: font-size 0.3s;
 }
-
-.home_button {
-  margin-right: 2rem;
+.menu_container {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+}
+.dropdown_menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+}
+.menu_button {
   padding: 7px 11px;
   background-color: transparent;
   color: #fff;
-  border: none; 
+  border: none;
   cursor: pointer;
   font-size: 1.5rem;
+  transition: font-size 0.3s;
 }
-
-@media (min-width: 768px) {
-  .main_header {
-    height: 40rem; 
-  }
-
-  .logo_container img {
-    max-height: 12rem; 
-  }
-
-  .title_container {
-    text-align: center; 
-    margin-top: 12rem; 
-    margin-left: 20px; 
-  }
-
+.title_container {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.main_title {
+  font-size: 5rem;
+  color: #fff;
+}
+.sub_title {
+  font-size: 3.5rem;
+  color: #FFFFFF;
+}
+@media (max-width: 768px) {
   .main_title {
-    font-size: 5rem; 
+    font-size: 4rem;
+    color: #fff;
   }
-
   .sub_title {
-    font-size: 3.5rem; 
-  }
-
-  .login_container button {
-    padding: 10px 20px;
-    font-size: 1.5rem;
+    font-size: 3rem;
+    color: #FFFFFF;
   }
 }
-@media (max-width: 445px) {
-  .login_container {
-    flex-direction: row;
-    align-items: center;
+@media (max-width: 430px) {
+  .buttons {
+    display: none;
   }
-
-  .home_button {
-    margin-right: 0.5rem; 
+  .menu_container {
+    display: flex;
+    margin-right: 4rem;
+  }
+  .menu_icon {
+    display: block;
+  }
+  .dropdown_menu {
+    display: flex;
+  }
+  .login_button {
+    margin-left: 0;
+  }
+  .mobile_menu {
+    z-index: 9999;
+    width: 100%;
+    background-color: rgba(76, 76, 76, 0.237);
+  }
+  .menu_links {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .menu_link {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: font-size 0.3s;
   }
 }
 </style>
