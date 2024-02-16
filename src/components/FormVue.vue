@@ -1,20 +1,56 @@
 <script setup>
+import { ref } from "vue"
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute()
+const router = useRouter()
+
+let username = ref("")
+let password = ref("")
+
+let uri = import.meta.env.VITE_API_ENDPOINT_LOGIN
+
+async function login(username, password) {
+
+  try {
+    let authString = btoa(`${username}:${password}`)
+    const response = await fetch(uri + '/login', {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Basic ' + authString
+      },
+      credentials: 'include'
+    });
+    const text = await response.json();
+    console.log(text);
+    redirectToHome()
+  } catch (error) {
+    alert("Incorrect username or password")
+    throw new Error('Error occured during API fetch GET request while login')
+  }
+}
+
+function redirectToHome() {
+  const redirectPath = route.query.redirect || '/'
+  router.push(redirectPath)
+}
+
 </script>
 
 <template>
-    <form action="">
+    <form @submit.prevent="login(username, password)">
         <h1>LOGIN</h1>
         <div id="inputs">
             <div>
                 <label for="username">Username</label>
-                <input type="text">
+                <input type="text" name="username" placeholder="username" v-model="username">
             </div>
             <div>
                 <label for="password">Password</label>
-                <input type="password">
+                <input type="password" name="password" placeholder="password" v-model="password">
             </div>
         </div>
-        <button>Iniciar Sesión</button>
+        <button type="submit">Iniciar Sesión</button>
     </form>
 </template>
 <style scoped lang="scss">
