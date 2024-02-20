@@ -5,34 +5,36 @@
         <img src="../../assets/images/logoConectados.png" alt="Logo">
       </div>
       <div class="buttons">
-        <button class="home_button" @click="navigate('Home')">Home</button>
-        <button class="my_events_button" @click="navigate('My Events')">My Events</button>
-        <button class="control_panel_button" @click="navigate('Control Panel')">Control Panel</button>
+        <router-link to="/" class="home_button">Home</router-link>
+        <router-link to="/my-events" class="my_events_button">My Events</router-link>
+        <router-link to="/control-panel" class="control_panel_button">Control Panel</router-link>
       </div>
       <div class="menu_container" @click="toggleMenu" v-show="isMobile">
         <div class="menu_icon">&#9776;</div>
       </div>
       <div class="login_container">
-        <button class="login_button" @click="navigate('Login')">Log In</button>
+        <router-link to="/login" class="login_button">Log In</router-link>
       </div>
     </div>
     <div class="mobile_menu" v-show="showMenu">
       <div class="menu_content">
         <div class="menu_links">
-          <button class="menu_link" @click="navigate('Home')">Home</button>
-          <button class="menu_link" @click="navigate('My Events')">My Events</button>
-          <button class="menu_link" @click="navigate('Control Panel')">Control Panel</button>
+          <router-link to="/" class="menu_link">Home</router-link>
+          <router-link to="/my-events" class="menu_link">My Events</router-link>
+          <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
         </div>
       </div>
-    <div class="logo_container">
-      <img src="./../../assets/images/logoConectados.png" alt="Logo">
-    </div>
-    <div class="title_container">
-      <div class="main_title">Your official Japan</div>
-      <div class="sub_title">travel guide</div>
-    </div>
+      <div class="logo_container">
+        <img src="./../../assets/images/logoConectados.png" alt="Logo">
+      </div>
+      <div class="title_container">
+        <div class="main_title">Your official Japan</div>
+        <div class="sub_title">travel guide</div>
+      </div>
+      </div>
   </header>
 </template>
+
 <script>
 export default {
   data() {
@@ -51,10 +53,6 @@ export default {
     toggleMenu() {
       this.showMenu = !this.showMenu;
     },
-    navigate(page) {
-      this.selectedPage = page;
-      this.showMenu = false;
-    },
     handleResize() {
       this.isMobile = window.innerWidth <= 430;
     },
@@ -72,18 +70,22 @@ export default {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255)),
     url('../../assets/images/imagenFondoHeader.jpg') center/cover no-repeat;
 }
+
 .button_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
+
 .logo_container img {
   max-height: 6rem;
 }
+
 .buttons {
   display: flex;
 }
+
 .home_button,
 .my_events_button,
 .control_panel_button {
@@ -96,10 +98,12 @@ export default {
   font-size: 1.5rem;
   transition: font-size 0.3s;
 }
+
 .login_container {
   display: flex;
   align-items: center;
 }
+
 .login_button {
   margin-left: 0.5rem;
   padding: 7px 11px;
@@ -111,6 +115,7 @@ export default {
   font-size: 1.5rem;
   transition: font-size 0.3s;
 }
+
 .menu_container {
   display: flex;
   flex-direction: column;
@@ -118,6 +123,7 @@ export default {
   font-size: 2rem;
   color: #fff;
 }
+
 .dropdown_menu {
   display: flex;
   flex-direction: column;
@@ -127,6 +133,7 @@ export default {
   width: 100%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
 }
+
 .menu_button {
   padding: 7px 11px;
   background-color: transparent;
@@ -136,55 +143,68 @@ export default {
   font-size: 1.5rem;
   transition: font-size 0.3s;
 }
+
 .title_container {
   text-align: center;
   margin-bottom: 4rem;
 }
+
 .main_title {
   font-size: 5rem;
   color: #fff;
 }
+
 .sub_title {
   font-size: 3.5rem;
   color: #FFFFFF;
 }
+
 @media (max-width: 768px) {
   .main_title {
     font-size: 4rem;
     color: #fff;
   }
+
   .sub_title {
     font-size: 3rem;
     color: #FFFFFF;
   }
 }
+
 @media (max-width: 430px) {
   .buttons {
     display: none;
   }
+
   .menu_container {
     display: flex;
     margin-right: 4rem;
   }
+
   .menu_icon {
     display: block;
   }
+
   .dropdown_menu {
     display: flex;
   }
+
   .login_button {
     margin-left: 0;
   }
+
   .mobile_menu {
     z-index: 9999;
     width: 100%;
     background-color: rgba(76, 76, 76, 0.237);
   }
+
   .menu_links {
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
+
   .menu_link {
     background-color: transparent;
     color: #fff;
@@ -193,5 +213,4 @@ export default {
     font-size: 1.2rem;
     transition: font-size 0.3s;
   }
-}
-</style>
+}</style>
