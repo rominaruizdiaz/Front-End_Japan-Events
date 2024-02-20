@@ -16,21 +16,22 @@
         <router-link to="/login" class="login_button">Log In</router-link>
       </div>
     </div>
+
     <div class="mobile_menu" v-show="showMenu">
       <div class="menu_content">
+        <div class="logo_container">
+          <img src="./../../assets/images/logoConectados.png" alt="Logo">
+        </div>
         <div class="menu_links">
           <router-link to="/" class="menu_link">Home</router-link>
           <router-link to="/my-events" class="menu_link">My Events</router-link>
           <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
         </div>
       </div>
-      <div class="logo_container">
-        <img src="./../../assets/images/logoConectados.png" alt="Logo">
       </div>
       <div class="title_container">
         <div class="main_title">Your official Japan</div>
         <div class="sub_title">travel guide</div>
-      </div>
       </div>
   </header>
 </template>
@@ -213,4 +214,5 @@ export default {
     font-size: 1.2rem;
     transition: font-size 0.3s;
   }
-}</style>
+}
+</style>
