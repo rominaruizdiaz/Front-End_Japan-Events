@@ -5,23 +5,23 @@
         <img src="../../assets/images/logoConectados.png" alt="Logo">
       </div>
       <div class="buttons">
-        <button class="home_button" @click="navigate('Home')">Home</button>
-        <button class="my_events_button" @click="navigate('My Events')">My Events</button>
-        <button class="control_panel_button" @click="navigate('Control Panel')">Control Panel</button>
+        <router-link to="/" class="home_button">Home</router-link>
+        <router-link to="/my-events" class="my_events_button">My Events</router-link>
+        <router-link to="/control-panel" class="control_panel_button">Control Panel</router-link>
       </div>
       <div class="menu_container" @click="toggleMenu" v-show="isMobile">
         <div class="menu_icon">&#9776;</div>
       </div>
       <div class="login_container">
-        <button class="login_button" @click="navigate('Login')">Log In</button>
+        <router-link to="/login" class="login_button">Log In</router-link>
       </div>
     </div>
     <div class="mobile_menu" v-show="showMenu">
       <div class="menu_content">
         <div class="menu_links">
-          <button class="menu_link" @click="navigate('Home')">Home</button>
-          <button class="menu_link" @click="navigate('My Events')">My Events</button>
-          <button class="menu_link" @click="navigate('Control Panel')">Control Panel</button>
+          <router-link to="/" class="menu_link">Home</router-link>
+          <router-link to="/my-events" class="menu_link">My Events</router-link>
+          <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
         </div>
       </div>
     </div>
@@ -31,6 +31,7 @@
     </div>
   </header>
 </template>
+
 <script>
 export default {
   data() {
@@ -48,10 +49,6 @@ export default {
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
-    },
-    navigate(page) {
-      this.selectedPage = page;
-      this.showMenu = false;
     },
     handleResize() {
       this.isMobile = window.innerWidth <= 430;
