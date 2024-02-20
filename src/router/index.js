@@ -1,3 +1,8 @@
+
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import EventViewVue from '@/EventView.vue';
+
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import EventView from '@/EventView.vue'
@@ -11,7 +16,26 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
+    // {
+    //   path: '/myevents',
+    //   name: 'myevents',
+    //   component: () => import('../views/MyEventsView.vue') // Agregado
+    // },
+    // {
+    //   path: '/controlpanel',
+    //   name: 'controlpanel',
+    //   component: () => import('../views/ControlPanelView.vue') // Agregado
+    // },
+    // {
+    //   path: '/login',
+    //   name: 'login',
+    //   component: () => import('../views/LoginView.vue') // Agregado
+    // },
     {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue')
+      
       path: '/login',
       name: 'login',
       component: LoginView
@@ -22,6 +46,6 @@ const router = createRouter({
       component: EventView
     }
   ]
-})
+});
 
-export default router
+export default router;
