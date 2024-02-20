@@ -4,8 +4,6 @@ import Header from './components/general/Header.vue';
 import Footer from './components/general/Footer.vue';
 // import HeaderEventVue from './components/general/HeaderEvent.vue';
 
-
-  
 </script>
 
 <template>
@@ -22,10 +20,12 @@ import Footer from './components/general/Footer.vue';
       </nav>
     </div>
   </header>
+</script>
+
+<template>
   <main>
     <RouterView />
   </main>
-  <Footer />
 </template>
 
 <style scoped lang="scss">

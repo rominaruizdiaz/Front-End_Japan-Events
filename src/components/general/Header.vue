@@ -24,6 +24,8 @@
           <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
         </div>
       </div>
+    <div class="logo_container">
+      <img src="./../../assets/images/logoConectados.png" alt="Logo">
     </div>
     <div class="title_container">
       <div class="main_title">Your official Japan</div>

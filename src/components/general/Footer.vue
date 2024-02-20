@@ -1,7 +1,7 @@
 <template>
     <footer class="main_footer">
         <div class="footer_container">
-            <img src="../../assets/images/logoConectados.png" alt="Logo" class="footer_logo">
+            <img src="./../../assets/images/logoConectados.png" alt="Logo" class="footer_logo">
         </div>
         <div class="divider"></div>
         <div class="social_icons">
