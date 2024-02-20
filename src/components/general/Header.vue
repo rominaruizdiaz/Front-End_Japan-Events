@@ -19,7 +19,7 @@
 
     <div class="mobile_menu" v-show="showMenu">
       <div class="menu_content">
-        <div class="logo_container">
+        <div class="logo_container_mobile">
           <img src="./../../assets/images/logoConectados.png" alt="Logo">
         </div>
         <div class="menu_links">
@@ -198,6 +198,13 @@ export default {
     z-index: 9999;
     width: 100%;
     background-color: rgba(76, 76, 76, 0.237);
+  }
+  .logo_container_mobile img{
+    max-height: 4rem;
+  }
+  .logo_container_mobile{
+    display: flex;
+    justify-content: center;
   }
 
   .menu_links {
