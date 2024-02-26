@@ -16,21 +16,22 @@
         <router-link to="/login" class="login_button">Log In</router-link>
       </div>
     </div>
+
     <div class="mobile_menu" v-show="showMenu">
       <div class="menu_content">
+        <div class="logo_container_mobile">
+          <img src="./../../assets/images/logoConectados.png" alt="Logo">
+        </div>
         <div class="menu_links">
           <router-link to="/" class="menu_link">Home</router-link>
           <router-link to="/my-events" class="menu_link">My Events</router-link>
           <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
         </div>
       </div>
-      <div class="logo_container">
-        <img src="./../../assets/images/logoConectados.png" alt="Logo">
       </div>
       <div class="title_container">
         <div class="main_title">Your official Japan</div>
         <div class="sub_title">travel guide</div>
-      </div>
       </div>
   </header>
 </template>
@@ -158,7 +159,14 @@ export default {
   font-size: 3.5rem;
   color: #FFFFFF;
 }
-
+.router-link-active,
+.router-link-exact-active,
+.buttons .home_button,
+.buttons .my_events_button,
+.buttons .control_panel_button,
+.menu_links .menu_link {
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .main_title {
     font-size: 4rem;
@@ -198,6 +206,13 @@ export default {
     width: 100%;
     background-color: rgba(76, 76, 76, 0.237);
   }
+  .logo_container_mobile img{
+    max-height: 4rem;
+  }
+  .logo_container_mobile{
+    display: flex;
+    justify-content: center;
+  }
 
   .menu_links {
     display: flex;
@@ -213,4 +228,5 @@ export default {
     font-size: 1.2rem;
     transition: font-size 0.3s;
   }
-}</style>
+}
+</style>

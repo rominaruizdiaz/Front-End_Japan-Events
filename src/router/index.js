@@ -4,6 +4,7 @@ import HomeView from '../views/HomeView.vue';
 import EventViewVue from '@/EventView.vue';
 import EventView from '@/EventView.vue'
 import LoginView from '@/views/LoginView.vue'
+import MyEventsViewVue from '@/views/MyEventsView.vue';
 
 
 const router = createRouter({
@@ -14,11 +15,11 @@ const router = createRouter({
       name: 'home',
       component: HomeView
     },
-    // {
-    //   path: '/myevents',
-    //   name: 'myevents',
-    //   component: () => import('../views/MyEventsView.vue') // Agregado
-    // },
+    {
+      path: '/my-events',
+      name: 'my-events',
+      component: MyEventsViewVue
+    },
     // {
     //   path: '/controlpanel',
     //   name: 'controlpanel',
