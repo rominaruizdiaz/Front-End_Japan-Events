@@ -9,25 +9,18 @@ import Footer from './components/general/Footer.vue';
 <template>
   <header>
     <!-- <HeaderEventVue /> -->
-    <Header />
-  
     <div class="wrapper">
 
-      <nav>
+      <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/events">Events</RouterLink>
-      </nav>
+      </nav> -->
     </div>
   </header>
-</script>
-
-<template>
   <main>
     <RouterView />
   </main>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
