@@ -1,19 +1,26 @@
 <script setup>
+import Event from '@/models/event/Event';
+
+const props = defineProps({
+    event: Event
+})
 
 </script>
 
 
 <template>
     <article>
+
         <div id="event_image">
             <div id="event_category">
-                <p>FOOD</p>
+                <p>{{ event.typeEvent.name }}</p>
             </div>
         </div>
+
         <div id="event_details">
             <div id="event_details_info">
                 <div id="event-title">
-                        Unazuki Onsen Snow Carnival dsadsa aadasdf
+                        {{event.name}}
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-place.svg" alt="">

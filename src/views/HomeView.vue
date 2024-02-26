@@ -1,8 +1,24 @@
 <script setup>
-import Card from './../components/Card.vue';
+import Card from './../components/card.vue';
 import CardFilter from './../components/CardFilter.vue';
 import HeaderVue from './../components/general/Header.vue';
 import FooterVue from './../components/general/Footer.vue';
+
+import {ref, reactive, onBeforeMount, onMounted} from 'vue';
+import EventRepository from '@/components/repositories/events/EventsRepository';
+import EventService from '@/service/events/EventService';
+
+let events = reactive([])
+let isLoaded = ref(false)
+
+const repository = new EventRepository()
+const service = new EventService(repository)
+
+onBeforeMount( async () => {
+   events = await service.index()
+   isLoaded.value = true
+   console.log(events)
+})
 </script>
 
 
@@ -14,14 +30,9 @@ import FooterVue from './../components/general/Footer.vue';
         <div>
           <CardFilter />
           <div id="cards_container">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <div v-for="event in events">
+              <Card :event="event" />
+            </div>
           </div>
         </div>
       </section>
