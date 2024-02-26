@@ -1,7 +1,8 @@
 <script setup>
 import HeaderEvent from '@/components/general/HeaderEvent.vue';
-import Card from './../components/Card.vue';
+// import Card from './../components/Card.vue';
 import FooterVue from './../components/general/Footer.vue';
+import CardMyEvents from '@/components/CardMyEvents.vue';
 </script>
 
 <template>
@@ -12,14 +13,7 @@ import FooterVue from './../components/general/Footer.vue';
           <div>
             <CardFilter />
             <div id="cards_container">
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
-              <Card />
+             <CardMyEvents />
             </div>
           </div>
         </section>

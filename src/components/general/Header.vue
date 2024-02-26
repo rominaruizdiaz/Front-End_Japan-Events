@@ -159,7 +159,14 @@ export default {
   font-size: 3.5rem;
   color: #FFFFFF;
 }
-
+.router-link-active,
+.router-link-exact-active,
+.buttons .home_button,
+.buttons .my_events_button,
+.buttons .control_panel_button,
+.menu_links .menu_link {
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .main_title {
     font-size: 4rem;
