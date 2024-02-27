@@ -4,21 +4,12 @@ import CardFilter from './../components/CardFilter.vue';
 import HeaderVue from './../components/general/Header.vue';
 import FooterVue from './../components/general/Footer.vue';
 
-import {ref, reactive, onBeforeMount, onMounted} from 'vue';
-import EventRepository from '@/components/repositories/events/EventsRepository';
-import EventService from '@/service/events/EventService';
+import { useEventStore } from "@/stores/CallStore";
 
-let events = reactive([])
-let isLoaded = ref(false)
+const store = useEventStore()
+store.getEvents()
+console.log(store.getEvents())
 
-const repository = new EventRepository()
-const service = new EventService(repository)
-
-onBeforeMount( async () => {
-   events = await service.index()
-   isLoaded.value = true
-   console.log(events)
-})
 </script>
 
 
@@ -29,11 +20,13 @@ onBeforeMount( async () => {
       <section>
         <div>
           <CardFilter />
+
           <div id="cards_container">
-            <div v-for="event in events">
+            <div v-for="event in store.events">
               <Card :event="event" />
             </div>
           </div>
+
         </div>
       </section>
     </main>

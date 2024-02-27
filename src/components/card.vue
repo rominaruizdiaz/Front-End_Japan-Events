@@ -1,9 +1,11 @@
 <script setup>
-import Event from '@/models/event/Event';
-
 const props = defineProps({
-    event: Event
-})
+    event: {
+        type: Object,
+        required: true,
+    },
+
+});
 
 </script>
 
@@ -13,26 +15,26 @@ const props = defineProps({
 
         <div id="event_image">
             <div id="event_category">
-                <p>{{ event.typeEvent.name }}</p>
+                {{ event.typeEvent.name }}
             </div>
         </div>
 
         <div id="event_details">
-            <div id="event_details_info">
+            <div id="event_details_in   fo">
                 <div id="event-title">
                         {{event.name}}
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-place.svg" alt="">
-                    <h2>Osaka</h2>
+                    <h2>{{event.ubication}}</h2>
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-date.svg" alt="">
-                    <h2>Oct 14th - 15th 2024</h2>
+                    <h2>{{event.date}}</h2>
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-ticket.svg" alt="">
-                    <h2>¥ 5.00</h2>
+                    <h2>¥{{event.price}}</h2>
                 </div>
             </div>
             <div id="event_details_read_more">
