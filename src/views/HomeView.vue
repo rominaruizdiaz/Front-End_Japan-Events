@@ -1,8 +1,15 @@
 <script setup>
-import Card from './../components/Card.vue';
+import Card from './../components/card.vue';
 import CardFilter from './../components/CardFilter.vue';
 import HeaderVue from './../components/general/Header.vue';
 import FooterVue from './../components/general/Footer.vue';
+
+import { useEventStore } from "@/stores/CallStore";
+
+const store = useEventStore()
+store.getEvents()
+console.log(store.getEvents())
+
 </script>
 
 
@@ -13,16 +20,13 @@ import FooterVue from './../components/general/Footer.vue';
       <section>
         <div>
           <CardFilter />
+
           <div id="cards_container">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <div v-for="event in store.events">
+              <Card :event="event" />
+            </div>
           </div>
+
         </div>
       </section>
     </main>

@@ -227,6 +227,11 @@ export default {
     cursor: pointer;
     font-size: 1.2rem;
     transition: font-size 0.3s;
+    text-decoration: none;
+  }
+
+  a{
+    text-decoration: none;
   }
 }
 </style>
