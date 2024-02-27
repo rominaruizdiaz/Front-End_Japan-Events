@@ -1,49 +1,66 @@
-<script setup>
-const props = defineProps({
-    event: {
-        type: Object,
-        required: true,
-    },
-
-});
-
-</script>
-
-
 <template>
     <article>
-
         <div id="event_image">
             <div id="event_category">
-                {{ event.typeEvent.name }}
+                <p>FOOD</p>
             </div>
         </div>
-
         <div id="event_details">
-            <div id="event_details_in   fo">
+            <div id="event_details_info">
                 <div id="event-title">
-                        {{event.name}}
+                    Unazuki Onsen Snow
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-place.svg" alt="">
-                    <h2>{{event.ubication}}</h2>
+                    <h2>Osaka</h2>
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-date.svg" alt="">
-                    <h2>{{event.date}}</h2>
+                    <h2>Oct 14th - 15th</h2>
                 </div>
                 <div>
                     <img src="./../assets/icons/event-icon-ticket.svg" alt="">
-                    <h2>¥{{event.price}}</h2>
+                    <h2>¥ 5.00</h2>
                 </div>
             </div>
-            <div id="event_details_read_more">
-                <!-- crear pop up de otra pagina-->
-                <button>Read more</button>
+            <div id="event_details_buttons">
+                <button class="buttonEliminate" @click="eliminarEvento">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20" height="20"
+                        viewBox="0 0 24 24" stroke-width="2.5" stroke="#ff2825" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M18 6l-12 12" />
+                        <path d="M6 6l12 12" />
+                    </svg>
+                </button>
+                <button class="buttonFav" @click="marcarFavorito">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="20" height="20"
+                        viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffbf00" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path
+                            d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                    </svg>
+                </button>
             </div>
+            
         </div>
     </article>
 </template>
+<script>
+export default {
+    methods: {
+        eliminarEvento() {
+            // Lógica para eliminar el evento
+            console.log("Evento eliminado");
+        },
+        marcarFavorito() {
+            // Lógica para marcar el evento como favorito
+            console.log("Evento marcado como favorito");
+        }
+    }
+}
+</script>
 
 
 <style scoped lang="scss">
@@ -57,6 +74,7 @@ article {
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
+
 #event_image {
     // crear un javascript para añadir las imagenes.
     background-image: url("./../assets/images/example-event.jpg");
@@ -78,18 +96,20 @@ article {
         justify-content: center;
         align-items: center;
 
-        > p {
+        >p {
             color: white;
             font-size: 1.5em;
             text-shadow: 0px 3px 2px rgba(0, 0, 0, 0.589);
         }
     }
 }
+
 #event_details {
     height: 50%;
     width: 100%;
     display: flex;
     justify-content: center;
+
     #event_details_info {
         width: 70%;
         flex-direction: column;
@@ -98,8 +118,8 @@ article {
 
         #event-title {
             margin-top: 1.5vh;
-            width: 90%; 
-            white-space: nowrap; 
+            width: 80%;
+            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             display: inline-block;
@@ -108,23 +128,25 @@ article {
             color: #424242;
         }
 
-        > div {
+        >div {
             display: flex;
             align-items: center;
 
-            > img {
+            >img {
                 width: 10px;
                 height: 10px;
             }
         }
+
         h2 {
             margin: 0;
             margin-left: 1vw;
-            font-size: 1em;
+            font-size: 0.7em;
             font-weight: 600;
             color: #909090;
         }
     }
+
     #event_details_read_more {
         width: 20%;
         height: 100%;
@@ -145,11 +167,32 @@ article {
         }
     }
 }
+#event_details_buttons{
+        
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .buttonFav {
+        padding: 7px 7px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
 
+    .buttonEliminate {
+        padding: 7px 7px;
+        background-color: transparent;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
 @media (min-width: 500px) {
     article {
-    width: 90vw;
-    height: 35vw;
+        width: 90vw;
+        height: 35vw;
     }
 
     #event_details {
@@ -157,6 +200,7 @@ article {
         width: 100%;
         display: flex;
         justify-content: center;
+
         #event_details_info {
             width: 70%;
 
@@ -170,10 +214,11 @@ article {
         }
     }
 }
+
 @media (min-width: 800px) {
     article {
-    width: 40vw;
-    height: 25vh;
+        width: 40vw;
+        height: 25vh;
     }
 }
 
@@ -181,7 +226,7 @@ article {
     article {
         height: 30vh;
         width: 25vh;
-    
+
     }
 
     #event_image {
@@ -205,13 +250,14 @@ article {
 
 @media (min-width: 1600px) {
     article {
-    width: 15vw;
-    height: 15vw;
-    border-radius: 5px;
+        width: 15vw;
+        height: 15vw;
+        border-radius: 5px;
     }
-    
+
     #event_image {
         border-radius: 5px;
+
         div {
             width: 8vw;
         }
@@ -225,13 +271,14 @@ article {
                 margin-top: 0.5vh;
             }
 
-            > div {
+            >div {
 
-                > img {
+                >img {
                     width: 20px;
                     height: 20px;
                 }
             }
+
             h2 {
                 font-size: 1.3em;
             }
@@ -240,11 +287,12 @@ article {
         #event_details_read_more {
 
             button {
-                font-size: 1.2em;
-                font-weight: 600;
+                font-size: 1em;
+                font-weight: 500;
             }
+        }
     }
-}
+    
+}</style>
 
-}
-</style>
+    
