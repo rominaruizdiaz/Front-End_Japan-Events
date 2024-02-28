@@ -13,7 +13,7 @@ console.log(store.getEvents())
     <section>
       <h1>Your official Japan travel guide.</h1>
     </section>
-     <main>
+    <main>
     </main>
   </body>
   
@@ -21,13 +21,9 @@ console.log(store.getEvents())
 
 
 <style scoped lang="scss">
-body {
-  width: 100vw;
-  height: 100vh;
-}
 
 section {
-  height: 80vh;
+  height: 35vh;
   width: 100%;
   background-image: url(./../assets/images/imagenFondoHeader.jpg);
   background-position: center;
@@ -38,8 +34,10 @@ section {
   
 
   h1 {
+    text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 8rem;
+    font-size: calc(16px  + 3vw);
+    margin: 7rem 5rem 0 5rem;
     font-weight: 400;
     color: white;
     filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
@@ -47,18 +45,22 @@ section {
 }
 
 
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   section {
-  height: 30vh;
+  height: 80vh;
+  
 
     h1 {
-      font-size: 3rem;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: calc(16px  + 3vw);
+      margin: 7rem 5rem 0 5rem;
+      font-weight: 400;
+      color: white;
       filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
-
-      z-index: 999;
     }
-  }
   
+  }
 }
 
 </style>
