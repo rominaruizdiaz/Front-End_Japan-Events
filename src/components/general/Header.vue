@@ -1,237 +1,213 @@
-<template>
-  <header class="main_header">
-    <div class="button_container">
-      <div class="logo_container">
-        <img src="../../assets/images/logoConectados.png" alt="Logo">
-      </div>
-      <div class="buttons">
-        <router-link to="/" class="home_button">Home</router-link>
-        <router-link to="/my-events" class="my_events_button">My Events</router-link>
-        <router-link to="/control-panel" class="control_panel_button">Control Panel</router-link>
-      </div>
-      <div class="menu_container" @click="toggleMenu" v-show="isMobile">
-        <div class="menu_icon">&#9776;</div>
-      </div>
-      <div class="login_container">
-        <router-link to="/login" class="login_button">Log In</router-link>
-      </div>
-    </div>
+<script setup>
+const showSidebar = () => {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'flex';
+}
+const hideSidebar = () => {
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.style.display = 'none';
+}
 
-    <div class="mobile_menu" v-show="showMenu">
-      <div class="menu_content">
-        <div class="logo_container_mobile">
-          <img src="./../../assets/images/logoConectados.png" alt="Logo">
+document.addEventListener("DOMContentLoaded", function() {
+    // Tu código JavaScript aquí
+    let prevScrollpos = window.scrollY;
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", function() {
+      let currentScrollPos = window.scrollY;
+      if (prevScrollpos > currentScrollPos) {
+        header.style.top = "0";
+      } else {
+        header.style.top = "-10rem";
+      }
+      prevScrollpos = currentScrollPos;
+    });
+});
+
+</script>
+
+<template>
+  <header id="header">
+
+      <div id="logo_container">
+        <img src="./../../assets/images/logoConectados.png" alt="Logo">
+      </div>
+
+      <nav>
+        <div class="sidebar">
+          <li @click="hideSidebar"><img src="./../../assets/icons/hide-hamburger.svg" alt="Logo"></li>
+          <img src="./../../assets/images/logoConectados-pink.png" alt="Logo">
+          <router-link to="/" class="button underline">Home</router-link>
+          <router-link to="/my-events" class="button underline">My Events</router-link>
+          <router-link to="/control-panel" class="button underline">Control Panel</router-link>
+          <router-link to="/login" class="button login_button">Log In</router-link>
         </div>
-        <div class="menu_links">
-          <router-link to="/" class="menu_link">Home</router-link>
-          <router-link to="/my-events" class="menu_link">My Events</router-link>
-          <router-link to="/control-panel" class="menu_link">Control Panel</router-link>
+        <div id="desktop-menu">
+          <router-link to="/" class="button underline hideOnMobile">Home</router-link>
+          <router-link to="/my-events" class="button underline hideOnMobile">My Events</router-link>
+          <router-link to="/control-panel" class="button underline hideOnMobile">Control Panel</router-link>
+          <router-link to="/login" class="button hideOnMobile login_button">Log In</router-link>
+          <li @click="showSidebar"><img src="./../../assets/icons/hamburger-menu.svg" alt="Logo"></li>
         </div>
-      </div>
-      </div>
-      <div class="title_container">
-        <div class="main_title">Your official Japan</div>
-        <div class="sub_title">travel guide</div>
-      </div>
+      </nav>
   </header>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      showMenu: false,
-      isMobile: window.innerWidth <= 430,
-    };
-  },
-  mounted() {
-    window.addEventListener('resize', this.handleResize);
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize);
-  },
-  methods: {
-    toggleMenu() {
-      this.showMenu = !this.showMenu;
-    },
-    handleResize() {
-      this.isMobile = window.innerWidth <= 430;
-    },
-  },
-};
-</script>
-<style scoped>
-.main_header {
-  height: 25rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(255, 255, 255)),
-    url('../../assets/images/imagenFondoHeader.jpg') center/cover no-repeat;
-}
 
-.button_container {
+<style lang="scss" scoped>
+
+header {
+  height: 10rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 0px 6rem;
+  background-color: rgba(166, 166, 166, 0.214);
+  backdrop-filter: blur(30px);
+  position: fixed;
 }
 
-.logo_container img {
-  max-height: 6rem;
-}
+#logo_container {
+  width: 20rem;
 
-.buttons {
+  img {
+    width: 100%;
+  }
+}
+#desktop-menu {
+  font-size: 1.7rem;
+  font-family: 'Poppins', sans-serif;
   display: flex;
-}
-
-.home_button,
-.my_events_button,
-.control_panel_button {
-  margin-right: 0.5rem;
-  padding: 7px 11px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: font-size 0.3s;
-}
-
-.login_container {
-  display: flex;
+  gap: 3rem;
   align-items: center;
-}
+  justify-content: space-between;
+  align-items: center;
 
-.login_button {
-  margin-left: 0.5rem;
-  padding: 7px 11px;
-  background-color: #d6d6d600;
-  color: #fff;
-  border: solid 1px #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: font-size 0.3s;
-}
-
-.menu_container {
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  font-size: 2rem;
-  color: #fff;
-}
-
-.dropdown_menu {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
-}
-
-.menu_button {
-  padding: 7px 11px;
-  background-color: transparent;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  transition: font-size 0.3s;
-}
-
-.title_container {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.main_title {
-  font-size: 5rem;
-  color: #fff;
-}
-
-.sub_title {
-  font-size: 3.5rem;
-  color: #FFFFFF;
-}
-.router-link-active,
-.router-link-exact-active,
-.buttons .home_button,
-.buttons .my_events_button,
-.buttons .control_panel_button,
-.menu_links .menu_link {
-  text-decoration: none;
-}
-@media (max-width: 768px) {
-  .main_title {
-    font-size: 4rem;
-    color: #fff;
-  }
-
-  .sub_title {
-    font-size: 3rem;
-    color: #FFFFFF;
-  }
-}
-
-@media (max-width: 430px) {
-  .buttons {
+  li {
+    list-style: none;
     display: none;
-  }
-
-  .menu_container {
-    display: flex;
-    margin-right: 4rem;
-  }
-
-  .menu_icon {
-    display: block;
-  }
-
-  .dropdown_menu {
-    display: flex;
+    img {
+      width: 2.3em;
+    }  
+  } 
+  .button {
+    color: white;
+    text-decoration: none;
   }
 
   .login_button {
-    margin-left: 0;
+  border-radius: 0.5rem;
+  border: solid 0.1rem white;
+  padding: 1rem 3rem;
+  transition: 300ms ease-in-out;
   }
-
-  .mobile_menu {
-    z-index: 9999;
-    width: 100%;
-    background-color: rgba(76, 76, 76, 0.237);
-  }
-  .logo_container_mobile img{
-    max-height: 4rem;
-  }
-  .logo_container_mobile{
-    display: flex;
-    justify-content: center;
-  }
-
-  .menu_links {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .menu_link {
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: font-size 0.3s;
-    text-decoration: none;
-  }
-
-  a{
-    text-decoration: none;
+  .login_button:hover {
+    background-color: white;
+    color: black;
   }
 }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.244);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 4vh 0;
+  display: none;
+
+  .login_button {
+  border-radius: 0.5rem;
+  border: solid 0.1rem #ad8799;
+  padding: 1rem 3rem;
+  transition: 300ms ease-in-out;
+  }
+  .login_button:hover {
+    background-color: #ad8799;
+    color: rgb(255, 255, 255);
+  }
+
+  .button {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  > img {
+    width: 80%;
+    margin-bottom: 4rem;
+  }
+
+  li{
+    width: 100%;
+    display: flex;
+    margin-left: 5rem;
+
+    img {
+    width: 3em;
+    height: 90%;
+
+  }
+}
+
+  .button {
+    color: black;
+  }
+  .button:hover {
+    color: black;
+  }
+}
+
+
+
+.underline {
+  display: inline-block;
+
+}
+.underline:after {
+content: '';
+  width: 0px;
+  height: 0.1rem;
+  display: block;
+  background: white;
+  transition: 300ms ease-in-out;
+}
+.underline:hover:after {
+  width: 100%;
+}
+
+#stickyheaders{
+transition : transform 0.34s ease;
+}
+.headerup{
+transform: translateY(-110px); 
+}
+
+#header {
+  transition: top 0.3s ease;
+}
+
+@media (max-width: 800px){
+  .hideOnMobile {
+    display: none;
+  }
+  
+  header {
+  padding: 0px 3rem;
+  }
+
+  #desktop-menu > li {
+    display: block;
+  } 
+}
+
 </style>

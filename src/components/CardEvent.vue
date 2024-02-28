@@ -54,7 +54,7 @@
 </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 #Container_Card {
    display: flex;

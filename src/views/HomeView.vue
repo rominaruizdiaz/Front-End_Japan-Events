@@ -1,9 +1,4 @@
 <script setup>
-import Card from './../components/card.vue';
-import CardFilter from './../components/CardFilter.vue';
-import HeaderVue from './../components/general/Header.vue';
-import FooterVue from './../components/general/Footer.vue';
-
 import { useEventStore } from "@/stores/CallStore";
 
 const store = useEventStore()
@@ -15,93 +10,55 @@ console.log(store.getEvents())
 
 <template>
   <body>
-    <HeaderVue />
-    <main>
-      <section>
-        <div>
-          <CardFilter />
-
-          <div id="cards_container">
-            <div v-for="event in store.events">
-              <Card :event="event" />
-            </div>
-          </div>
-
-        </div>
-      </section>
+    <section>
+      <h1>Your official Japan travel guide.</h1>
+    </section>
+     <main>
     </main>
-    <FooterVue />
   </body>
   
 </template>
 
 
 <style scoped lang="scss">
+body {
+  width: 100vw;
+  height: 100vh;
+}
 
 section {
-  background-image: url(./../assets/images/background-cards.png);
-  background-repeat: no-repeat;
+  height: 80vh;
+  width: 100%;
+  background-image: url(./../assets/images/imagenFondoHeader.jpg);
+  background-position: center;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 
-  > div {
-    width: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 3vh;
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 8rem;
+    font-weight: 400;
+    color: white;
+    filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
   }
 }
 
-#cards_container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 3vh;
-}
 
-@media (min-width: 500px) {
-#cards_container {
-  display: grid;
-  grid-template-columns: auto;
-}
-}
-
-@media (min-width: 800px) {
-#cards_container {
-  grid-template-columns: auto auto;
-}
-}
-@media (min-width: 1200px) {
+@media (max-width: 600px) {
   section {
+  height: 30vh;
 
-    > div {
-      width: 70%;
+    h1 {
+      font-size: 3rem;
+      filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
+
+      z-index: 999;
     }
   }
-#cards_container {
-    gap: 5vh;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+  
 }
 
-}
-@media (min-width: 1600px) {
-  section {
-
-    > div {
-      width: 70%;
-    }
-  }
-#cards_container {
-    gap: 5vh;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
-}
 </style>
