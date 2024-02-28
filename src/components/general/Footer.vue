@@ -35,7 +35,7 @@
 <style scoped lang="scss">
 footer {
     width: 100%;
-    background-color: #416C93;
+    background-color: #5097A6;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@ footer {
     width: 80%;
     justify-content: space-around;
     p {
-        font-size: 1em;
+        font-size: 1rem;
     }
 }
 
@@ -79,14 +79,11 @@ p {
 }
 
 hr {
-    background-color: white;
     width: 70%;
+    border: solid 1px white;
 }
 
 @media (min-width: 800px){
-    footer {
-    background-color: #416C93;
-    }
 
     #logo {
         padding: 5rem;

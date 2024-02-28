@@ -66,6 +66,7 @@ header {
   background-color: rgba(166, 166, 166, 0.214);
   backdrop-filter: blur(30px);
   position: fixed;
+  z-index: 998;
 }
 
 #logo_container {
