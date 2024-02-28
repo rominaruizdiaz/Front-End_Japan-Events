@@ -4,23 +4,22 @@ const props = defineProps({
         type: Object,
         required: true,
     },
-
 });
-
+console.log('URL de la imagen:', props.event.image);
 </script>
 
 
 <template>
     <article>
 
-        <div id="event_image">
+        <div :style="{ 'background-image': 'url(' + event.image + ')' }" id="event_image">
             <div id="event_category">
                 {{ event.typeEvent.name }}
             </div>
         </div>
 
         <div id="event_details">
-            <div id="event_details_in   fo">
+            <div id="event_details_info">
                 <div id="event-title">
                         {{event.name}}
                 </div>
@@ -57,9 +56,9 @@ article {
     flex-direction: column;
     font-family: 'Poppins', sans-serif;
 }
+
+
 #event_image {
-    // crear un javascript para añadir las imagenes.
-    background-image: url("./../assets/images/example-event.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
