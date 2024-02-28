@@ -1,5 +1,4 @@
 <script setup>
-import HeaderEvent from '@/components/general/HeaderEvent.vue';
 // import Card from './../components/Card.vue';
 import FooterVue from './../components/general/Footer.vue';
 import CardMyEvents from '@/components/CardMyEvents.vue';
@@ -7,7 +6,6 @@ import CardMyEvents from '@/components/CardMyEvents.vue';
 
 <template>
     <body>
-      <HeaderEvent />
       <main>
         <section>
           <div>
