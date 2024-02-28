@@ -7,6 +7,7 @@ const props = defineProps({
 
 });
 
+console.log(props.event);
 </script>
 
 
@@ -39,7 +40,7 @@ const props = defineProps({
             </div>
             <div id="event_details_read_more">
                 <!-- crear pop up de otra pagina-->
-                <button>Read more</button>
+                <router-link :to="{ path: `/details/${props.event.id_event}`}">Ver detalles</router-link> 
             </div>
         </div>
     </article>
@@ -131,7 +132,7 @@ article {
         display: flex;
         align-items: end;
 
-        button {
+        a {
             margin-bottom: 2vh;
             width: 100%;
             height: 4vh;
@@ -142,6 +143,7 @@ article {
             color: white;
             background-color: #FFB69E;
             box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.283);
+            text-decoration: none;
         }
     }
 }

@@ -1,10 +1,10 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import EventViewVue from '@/EventView.vue';
 import EventView from '@/EventView.vue'
 import LoginView from '@/views/LoginView.vue'
 import MyEventsViewVue from '@/views/MyEventsView.vue';
+import DetailsView from '@/views/DetailsView.vue'
 
 
 const router = createRouter({
@@ -35,8 +35,15 @@ const router = createRouter({
       path: '/events',
       name: 'events',
       component: EventView
+    },
+    {
+      path: '/details/:id_event',
+      name: 'detailsPage',
+      component: DetailsView,
+      props: true
     }
   ]
+
 });
 
 export default router;
