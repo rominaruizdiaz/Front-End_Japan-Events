@@ -1,6 +1,7 @@
 <script setup>
 import { useEventStore } from "@/stores/CallStore";
 import Card from './../components/Card.vue';
+import CardFilter from './../components/CardFilter.vue';
 
 const store = useEventStore()
 store.getEvents()
@@ -11,44 +12,29 @@ console.log(store.getEvents())
 
 <template>
   <body>
-    <section>
+
+    <header>
       <h1>Your official Japan travel guide.</h1>
-    </section>
+    </header>
+
     <main>
-      <div id="cards_container">
-          <div v-for="event in store.events">
-            <Card :event="event" />
-          </div>
-        </div>
-    </main>
-  </body>
-  
-</template>
-
-<!-- 
-<body>
-  <HeaderVue />
-  <main>
-    <section>
-      <div>
+      <section>
         <CardFilter />
-
         <div id="cards_container">
           <div v-for="event in store.events">
             <Card :event="event" />
           </div>
         </div>
-
-      </div>
-    </section>
-  </main>
-  <FooterVue />
-</body> -->
+      </section>
+    </main>
+  </body>
+  
+</template>
 
 
 
 <style scoped lang="scss">
-section {
+header {
   height: 35vh;
   width: 100%;
   background-image: url(./../assets/images/imagenFondoHeader.jpg);
@@ -69,8 +55,16 @@ section {
   }
 }
 
-@media (min-width: 600px) {
-  section {
+#cards_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+
+@media (min-width: 800px) {
+header {
   height: 80vh;
 
     h1 {
@@ -83,7 +77,25 @@ section {
       filter: drop-shadow(0 0 0.75rem rgb(0, 0, 0));
     }
   
-  }
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#cards_container {
+  width: 80%;
+  margin: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  justify-content: center;
+}
 }
 
 </style>

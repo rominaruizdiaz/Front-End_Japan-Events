@@ -11,30 +11,31 @@ const props = defineProps({
 const contentStore = useContentStore();
 const content = ref(null);
 
-console.log(contentStore);
 
 watchEffect(() => {
-  if (props.id_event) {
-    contentStore.fetchContentById(props.id_event).then(() => {
-      content.value = contentStore.content;
-    });
-  }
+    if (props.id_event) {
+        contentStore.fetchContentById(props.id_event).then(() => {
+            content.value = contentStore.content;
+        });
+    }
 });
+
+console.log(contentStore.content);
 
 </script>
 <template>
     <HeaderVue /> 
     <main>  
-        <div class="title">
-            <h2>{{ content.name }}</h2>
+        <div class="title" v-if="content">
+            <h2>{{ contentStore.content.name }}</h2>
         </div>
-        <div class="container_elements">
-            <p>Lugar: {{ content.ubication }}</p>
-            <p>Plazas disponibles: {{ content.capacity }}</p>
-            <p>Fecha: {{ content.date }}</p>
-            <p>Precio: ¥{{ content.price }}</p>
+        <div class="container_elements" v-if="content">
+            <p>Lugar: {{ contentStore.content.ubication }}</p>
+            <p>Plazas disponibles: {{ contentStore.content.capacity }}</p>
+            <p>Fecha: {{ contentStore.content.date }}</p>
+            <p>Precio: ¥{{ contentStore.content.price }}</p>
             <h4>Detalles:</h4>
-            <p>{{ content.description }}</p>
+            <p>{{ contentStore.content.description }}</p>
 
             <button class="subscribe_event">Suscribete al evento</button>
         </div>
@@ -47,6 +48,7 @@ watchEffect(() => {
     </main>
     <FooterVue /> 
 </template>
+
 <style scoped lang="scss">
 p, .subscribe_event{
     font-size: 1.8rem;
