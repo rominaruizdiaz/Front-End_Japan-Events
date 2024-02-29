@@ -78,6 +78,7 @@ p {
         font-family: 'Poppins', sans-serif;
 }
 
+
 hr {
     width: 70%;
     border: solid 1px white;
