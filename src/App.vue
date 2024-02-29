@@ -1,20 +1,17 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HeaderVue from './components/general/Header.vue';
-import FooterVue from './components/general/Footer.vue';
-
+import { RouterLink, RouterView } from "vue-router";
+import HeaderVue from "./components/general/Header.vue";
+import FooterVue from "./components/general/Footer.vue";
 </script>
 
 <template>
-
-  <main>
-    <HeaderVue />
-    <div>
-      <RouterView />
-    </div>
-    <FooterVue />
-  </main>
+	<main>
+		<HeaderVue />
+		<div>
+			<RouterView />
+		</div>
+		<FooterVue />
+	</main>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
