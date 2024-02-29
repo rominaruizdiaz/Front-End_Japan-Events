@@ -11,33 +11,6 @@ const props = defineProps({
 const contentStore = useContentStore();
 const content = ref(null);
 
-<<<<<<< HEAD
-
-watchEffect(() => {
-    if (props.id_event) {
-        contentStore.fetchContentById(props.id_event).then(() => {
-            content.value = contentStore.content;
-        });
-    }
-});
-
-console.log(contentStore.content);
-
-</script>
-<template>
-    <HeaderVue /> 
-    <main>  
-        <div class="title" v-if="content">
-            <h2>{{ contentStore.content.name }}</h2>
-        </div>
-        <div class="container_elements" v-if="content">
-            <p>Lugar: {{ contentStore.content.ubication }}</p>
-            <p>Plazas disponibles: {{ contentStore.content.capacity }}</p>
-            <p>Fecha: {{ contentStore.content.date }}</p>
-            <p>Precio: ¥{{ contentStore.content.price }}</p>
-            <h4>Detalles:</h4>
-            <p>{{ contentStore.content.description }}</p>
-=======
 watchEffect(() => {
 	if (props.id_event) {
 		contentStore.fetchContentById(props.id_event).then(() => {
@@ -68,7 +41,6 @@ console.log(contentStore.content);
 			</div>
 			<div>
 				<img src="./../assets/icons/event-icon-seats.svg" alt="" />
->>>>>>> b966f75677fda1a9ca4104ff342b1fcea0941820
 
 				<p>Plazas disponibles: {{ contentStore.content.capacity }}</p>
 			</div>
@@ -91,42 +63,6 @@ console.log(contentStore.content);
 		<div v-if="error">Ha ocurrido un error: {{ error.message }}</div>
 	</main>
 </template>
-<<<<<<< HEAD
-
-<style scoped lang="scss">
-p, .subscribe_event{
-    font-size: 1.8rem;
-    font-family: 'Poppins', sans-serif;
-}
-h4{
-    font-size: 2rem;
-    font-family: 'Poppins', sans-serif;
-}
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-.title{
-    text-align: center;
-}
-.subscribe_event{
-    background-color: #D64747;
-    color: #000;
-    padding: 1rem;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-}
-.container_elements{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    border: 1px solid #000;
-    border-radius: 10px;
-=======
->>>>>>> b966f75677fda1a9ca4104ff342b1fcea0941820
 
 <style scoped lang="scss">
 #event_image {
